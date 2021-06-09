@@ -1,5 +1,5 @@
-ARG CLI_IMAGE
-FROM ${CLI_IMAGE} as cli
+ARG CLIGATSBY_IMAGE
+FROM ${CLIGATSBY_IMAGE} as cli
 FROM uselagoon/node-14
 
 COPY --from=cli /app /app

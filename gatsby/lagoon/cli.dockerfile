@@ -19,9 +19,6 @@ RUN apk add --no-cache \
 
 RUN yarn global add gatsby-cli
 RUN yarn install
-ARG SANITY_STUDIO_API_DATASET
-ARG SANITY_PROJECT_ID
-ARG SANITY_TOKEN
 COPY ./ /app/
 
 # make sure we skip the layer caching every single time, see https://stackoverflow.com/questions/35134713/disable-cache-for-specific-run-commands
@@ -31,6 +28,4 @@ COPY ./ /app/
 # for docker builds to decide if it should use the cache or not. Therefore we force the layer cache to be invalid (with downloading a random string)
 # a bit hacky, but works. can be refactored when https://github.com/amazeeio/lagoon/issues/2246 lands.
 ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
-
 RUN export && gatsby clean && gatsby build --verbose
-RUN ls -la /app
