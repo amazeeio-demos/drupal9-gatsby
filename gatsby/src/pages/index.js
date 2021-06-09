@@ -11,7 +11,7 @@ const IndexPage = ({data}) => (
   <Layout>
     <Seo title="Home" />
     <h1>Hi people</h1>
-    <p>Welcome to an amazee.io demo Gatsby site running on Lagoon!</p>
+    <p>Welcome to an amazee.io demo Gatsby site running on Lagoon!!</p>
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
