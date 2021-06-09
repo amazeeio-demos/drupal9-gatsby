@@ -1,0 +1,6 @@
+name: aio-drupal9-gatsby
+recipe: lagoon
+config:
+  flavor: drupal
+  build:
+    - composer install
