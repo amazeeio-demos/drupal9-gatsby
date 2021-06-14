@@ -12,15 +12,20 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
+  devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
   field_ui: 0
   file: 0
   filter: 0
+  gatsby_extras: 0
   help: 0
   history: 0
   image: 0
+  jsonapi: 0
+  jsonapi_defaults: 0
+  jsonapi_extras: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
@@ -32,6 +37,7 @@ module:
   quickedit: 0
   rdf: 0
   search: 0
+  serialization: 0
   shortcut: 0
   system: 0
   taxonomy: 0
@@ -42,6 +48,9 @@ module:
   user: 0
   views_ui: 0
   views: 10
+  gatsby: 100
+  gatsby_instantpreview: 100
+  gatsby_fastbuilds: 101
   standard: 1000
 theme:
   bartik: 0
