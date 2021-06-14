@@ -1,7 +1,10 @@
 # Drupal9 Gatsby
 
 ## About
-Drupal9-Gatsby is for demonstration purposes only. This demo can be used as a foundation for a Headless Drupal / Gatsby project, you shouldn't use this exact setup in production.
+
+This demo is focused on running Drupal & Gatsby locally in containers. This is not designed to easily run in the lagoon hosted environment.
+
+Drupal9-Gatsby is for demonstration purposes only. This demo can be used as a foundation for a Headless Drupal / Gatsby project, but you shouldn't use this exact setup in production.
 
 ## Prerequisites
 
