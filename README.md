@@ -30,10 +30,10 @@ You can get up and running locally by following these steps:
 ### Start the docker containers in order to install the Drupal demo modules and content
 `docker-compose up -d`
 
-### Install the Drupal basic site
+### Install the Drupal basic site with demo content ready for Gatsby to consume over the JSONAPI endpoint
 `docker-compose exec cli lagoon/install.sh`
 
-**NB:** Note down the admin username and password to be able to log into Drupal
+**NB:** Copy down the admin username and password to be able to log into Drupal
 
 ### Restart the docker containers in preparation for Gatsby to read the new schema from the umami demo
 `docker-compose stop`
@@ -45,6 +45,7 @@ While Gatsby is building in the background, you can run
 
 ### Log into Drupal
 Browse to `http://aio-drupal9-gatsby.docker.amazee.io/en/user/login`
+Run `docker-compose exec cli drush uli` to get a onetime login if you didn't note down the admin user and password from the install step above.
 
 ### View the Gatsby frontent
 Browse to `http://aio-drupal9-gatsby-node-gatsby.docker.amazee.io/`
