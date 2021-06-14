@@ -35,7 +35,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `https://nginx:8080/`,
+        baseUrl: `http://nginx:8080/`,
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
       },
     },
