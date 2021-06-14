@@ -28,4 +28,4 @@ COPY ./ /app/
 # for docker builds to decide if it should use the cache or not. Therefore we force the layer cache to be invalid (with downloading a random string)
 # a bit hacky, but works. can be refactored when https://github.com/amazeeio/lagoon/issues/2246 lands.
 ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
-RUN export && gatsby clean && gatsby build --verbose
+RUN export && gatsby clean

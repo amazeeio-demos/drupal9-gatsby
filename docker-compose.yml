@@ -65,57 +65,57 @@ services:
       << : *default-environment # loads the defined environment variables from the top
 
    # SERVICE: NGINX for Drupal
-   nginx:
-     build:
-       context: drupal
-       dockerfile: lagoon/nginx.dockerfile
-       args:
-         CLI_IMAGE: *cli-image # Inject the name of the cli image
-     labels:
-       lagoon.type: nginx-php-persistent
-       lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
-       lando.type: nginx-drupal
-     << : *default-volumes # loads the defined volumes from the top
-     << : *default-user # uses the defined user from top
-     depends_on:
-       - cli # basically just tells docker-compose to build the cli first
-     environment:
-       << : *default-environment # loads the defined environment variables from the top
-       LAGOON_LOCALDEV_URL: *default-url
-     networks:
-       - amazeeio-network
-       - default
+  nginx:
+    build:
+      context: drupal
+      dockerfile: lagoon/nginx.dockerfile
+      args:
+        CLI_IMAGE: *cli-image # Inject the name of the cli image
+    labels:
+      lagoon.type: nginx-php-persistent
+      lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
+      lando.type: nginx-drupal
+    << : *default-volumes # loads the defined volumes from the top
+    << : *default-user # uses the defined user from top
+    depends_on:
+      - cli # basically just tells docker-compose to build the cli first
+    environment:
+      << : *default-environment # loads the defined environment variables from the top
+      LAGOON_LOCALDEV_URL: *default-url
+    networks:
+      - amazeeio-network
+      - default
 
    # SERVICE: PHP for Drupal
-   php:
-     build:
-       context: drupal
-       dockerfile: lagoon/php.dockerfile
-       args:
-         CLI_IMAGE: *cli-image
-     labels:
-       lagoon.type: nginx-php-persistent
-       lagoon.name: nginx # we want this service be part of the nginx pod in Lagoon
-       lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
-       lando.type: php-fpm
-     << : *default-volumes # loads the defined volumes from the top
-     << : *default-user # uses the defined user from top
-     depends_on:
-       - cli # basically just tells docker-compose to build the cli first
-     environment:
-       << : *default-environment # loads the defined environment variables from the top
+  php:
+    build:
+      context: drupal
+      dockerfile: lagoon/php.dockerfile
+      args:
+        CLI_IMAGE: *cli-image
+    labels:
+      lagoon.type: nginx-php-persistent
+      lagoon.name: nginx # we want this service be part of the nginx pod in Lagoon
+      lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
+      lando.type: php-fpm
+    << : *default-volumes # loads the defined volumes from the top
+    << : *default-user # uses the defined user from top
+    depends_on:
+      - cli # basically just tells docker-compose to build the cli first
+    environment:
+      << : *default-environment # loads the defined environment variables from the top
 
    # SERVICE: Mariadb for Drupal
-   mariadb:
-     image: uselagoon/mariadb-drupal:latest
-     labels:
-       lagoon.type: mariadb
-       lando.type: mariadb-drupal
-     ports:
-       - "3306" # exposes the port 3306 with a random local port, find it with `docker-compose port mariadb 3306`
-     << : *default-user # uses the defined user from top
-     environment:
-       << : *default-environment
+  mariadb:
+    image: uselagoon/mariadb-drupal:latest
+    labels:
+      lagoon.type: mariadb
+      lando.type: mariadb-drupal
+    ports:
+      - "3306" # exposes the port 3306 with a random local port, find it with `docker-compose port mariadb 3306`
+    << : *default-user # uses the defined user from top
+    environment:
+      << : *default-environment
 
   # SERVICE: Gatsby node container for running gatsby development
   nodegatsby:

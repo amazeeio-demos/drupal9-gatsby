@@ -35,7 +35,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `https://nginx.main.aiosales-drupal-demo-poly1.us2.amazee.io/`,
+        baseUrl: `https://nginx:8080/`,
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
       },
     },
